@@ -1,9 +1,4 @@
-# HTML aggiornato con:
-# - cerchio che rimane tra titolo e testo respiro
-# - titolo animato come prima (effetto "respiro")
-# - mantenuto il viola scelto dall'utente
 
-html_adjusted = """
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -23,7 +18,7 @@ html_adjusted = """
       font-size: 2em;
       margin-bottom: 0.2em;
       line-height: 1.4em;
-      animation: breatheTitle 8s ease-in-out infinite;
+      animation: breathe 8s infinite;
     }
 
     @keyframes breatheTitle {
@@ -114,11 +109,6 @@ html_adjusted = """
   </script>
 </body>
 </html>
-"""
 
-# Salvataggio del file corretto
-from pathlib import Path
-output_path = Path("/mnt/data/index.html")
-output_path.write_text(html_adjusted, encoding="utf-8")
 
 output_path
