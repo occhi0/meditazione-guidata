@@ -55,22 +55,6 @@
       color: #555;
     }
 
-    .play-button {
-      margin-top: 3em;
-      background-color: #444;
-      color: white;
-      border: none;
-      padding: 1em 2em;
-      border-radius: 30px;
-      font-size: 1em;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    .play-button:hover {
-      background-color: #222;
-    }
-
     audio {
       display: none;
     }
@@ -83,15 +67,14 @@
     }
   </style>
 </head>
-<body>
+<body onload="document.getElementById('meditazione').play()">
   <h1>Inspira. Espira.<br>E ignora.</h1>
   <p>Una pausa sonora per tornare a respirare tra le scosse della giornata.</p>
 
   <div id="circle"></div>
   <div id="breath-text">Inspira...</div>
 
-  <button class="play-button" onclick="document.getElementById('meditazione').play()">Avvia la meditazione</button>
-  <audio id="meditazione">
+  <audio id="meditazione" autoplay>
     <source src="Meditazione guidata - Vaffanculo.mp3" type="audio/mpeg">
     Il tuo browser non supporta l'audio. Pazienza.
   </audio>
