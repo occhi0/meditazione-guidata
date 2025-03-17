@@ -1,4 +1,9 @@
+# HTML aggiornato con:
+# - cerchio che rimane tra titolo e testo respiro
+# - titolo animato come prima (effetto "respiro")
+# - mantenuto il viola scelto dall'utente
 
+html_adjusted = """
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -18,6 +23,13 @@
       font-size: 2em;
       margin-bottom: 0.2em;
       line-height: 1.4em;
+      animation: breatheTitle 8s ease-in-out infinite;
+    }
+
+    @keyframes breatheTitle {
+      0% { opacity: 0.7; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.03); }
+      100% { opacity: 0.7; transform: scale(1); }
     }
 
     p {
@@ -29,9 +41,9 @@
     #circle {
       width: 100px;
       height: 100px;
-      margin: 2em auto 0 auto;
+      margin: 2em auto 0.5em auto;
       border-radius: 50%;
-      background-color: #6718b6;
+      background-color: #6900d1;
       animation: breathe 8s ease-in-out infinite;
     }
 
@@ -43,7 +55,7 @@
 
     #breath-text {
       font-size: 1.4em;
-      margin-top: 3em;
+      margin-top: 1.5em;
       color: #555;
     }
 
@@ -76,13 +88,13 @@
   </style>
 </head>
 <body>
-  <h1>Inspira. Espira.<br>E ignora.</h1>
+  <h1>🧘‍♀️ Inspira. Espira.<br>E ignora.</h1>
   <p>Una pausa sonora per tornare a respirare tra le scosse della giornata.</p>
 
   <div id="circle"></div>
   <div id="breath-text">Inspira...</div>
 
-  <button class="play-button" onclick="document.getElementById('meditazione').play()">Avvia la meditazione</button>
+  <button class="play-button" onclick="document.getElementById('meditazione').play()">🎧 Avvia la meditazione</button>
   <audio id="meditazione">
     <source src="Meditazione guidata - Vaffanculo.mp3" type="audio/mpeg">
     Il tuo browser non supporta l'audio. Pazienza.
@@ -102,3 +114,11 @@
   </script>
 </body>
 </html>
+"""
+
+# Salvataggio del file corretto
+from pathlib import Path
+output_path = Path("/mnt/data/index.html")
+output_path.write_text(html_adjusted, encoding="utf-8")
+
+output_path
